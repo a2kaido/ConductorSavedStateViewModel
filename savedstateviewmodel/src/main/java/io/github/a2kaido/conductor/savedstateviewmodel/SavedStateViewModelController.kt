@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Bundle
 import androidx.lifecycle.HasDefaultViewModelProviderFactory
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
@@ -33,10 +32,6 @@ abstract class SavedStateViewModelController(
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        val lifecycle: Lifecycle = lifecycle
-        if (lifecycle is LifecycleRegistry) {
-            lifecycle.currentState = Lifecycle.State.CREATED
-        }
         super.onSaveInstanceState(outState)
         savedStateRegistryController.performSave(outState)
     }
