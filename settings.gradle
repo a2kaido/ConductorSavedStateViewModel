@@ -1,0 +1,3 @@
+rootProject.name='ConductorSavedStateViewModel'
+include ':app'
+include ':savedstateviewmodel'
